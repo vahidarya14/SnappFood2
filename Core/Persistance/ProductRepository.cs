@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Core.Persistance;
 
-public class ProductRepository
+public class ProductRepository : IProductRepository
 {
     AppDbContext _db;
 
@@ -12,9 +12,9 @@ public class ProductRepository
     {
         _db = db;
     }
-    public  IQueryable<Product> PageAsync(int pageNumber,int pagesize)
+    public IQueryable<Product> PageAsync(int pageNumber, int pagesize)
     {
-        return  _db.Products.Skip(pageNumber*pagesize).Take(pagesize);
+        return _db.Products.Skip(pageNumber * pagesize).Take(pagesize);
     }
 
     public async Task<Product> GetByIdAsync(long id)

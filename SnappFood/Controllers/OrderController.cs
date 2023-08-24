@@ -7,9 +7,9 @@ namespace SnappFood.Controllers
     [Route("[controller]")]
     public class OrderController : ControllerBase
     {
-        OrderService _orderService;
+        IOrderService _orderService;
 
-        public OrderController(OrderService orderService)
+        public OrderController(IOrderService orderService)
         {
             _orderService = orderService;
         }

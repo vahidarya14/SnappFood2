@@ -8,9 +8,9 @@ namespace SnappFood.Controllers
     [Route("[controller]")]
     public class ProductController : ControllerBase
     {
-        ProductService _productService;
+        IProductService _productService;
 
-        public ProductController(ProductService productService)
+        public ProductController(IProductService productService)
         {
             _productService = productService;
         }

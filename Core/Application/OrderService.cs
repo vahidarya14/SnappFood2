@@ -1,20 +1,15 @@
 ﻿using Core.Domain;
 using Core.Persistance;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Core.Application;
 
-public class OrderService
+public class OrderService : IOrderService
 {
-    ProductRepository _productRepo;
-    OrderRepository _orderRepo;
-    UserRepository _userRepo;
-    public OrderService(ProductRepository productRepo, OrderRepository orderRepo, UserRepository userRepo)
+    IProductRepository _productRepo;
+    IOrderRepository _orderRepo;
+    IUserRepository _userRepo;
+    public OrderService(IProductRepository productRepo, IOrderRepository orderRepo, IUserRepository userRepo)
     {
         _productRepo = productRepo;
         _orderRepo = orderRepo;

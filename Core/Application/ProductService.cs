@@ -3,11 +3,11 @@ using Core.Persistance;
 using Microsoft.EntityFrameworkCore;
 
 namespace Core.Application;
-public class ProductService
+public class ProductService : IProductService
 {
-    ProductRepository _repo;
+    IProductRepository _repo;
 
-    public ProductService(ProductRepository repo)
+    public ProductService(IProductRepository repo)
     {
         _repo = repo;
     }
@@ -49,8 +49,8 @@ public class ProductService
         product.Discount = productDto.Discount;
         product.Price = productDto.Price;
 
-        var res=await _repo.SaveChangesAsync();
-        return res>0;
+        var res = await _repo.SaveChangesAsync();
+        return res > 0;
     }
 
     public async Task<int> IncreseInventoryCount(long productId, int inventoryCount)

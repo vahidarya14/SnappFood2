@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Core.Persistance;
 
-public class UserRepository
+public class UserRepository : IUserRepository
 {
     AppDbContext _db;
 

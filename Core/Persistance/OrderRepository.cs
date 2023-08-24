@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Storage;
 
 namespace Core.Persistance;
 
-public class OrderRepository
+public class OrderRepository : IOrderRepository
 {
     AppDbContext _db;
 

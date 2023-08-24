@@ -1,4 +1,5 @@
 using Core.Application;
+using Core.Domain;
 using Core.Infrastructure;
 using Core.Persistance;
 using Microsoft.EntityFrameworkCore;
@@ -9,11 +10,11 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<AppDbContext>(x=>x.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-builder.Services.AddScoped<ProductRepository>();
-builder.Services.AddScoped<OrderRepository>();
-builder.Services.AddScoped<UserRepository>();
-builder.Services.AddScoped<ProductService>();
-builder.Services.AddScoped<OrderService>();
+builder.Services.AddScoped<IProductRepository,ProductRepository>();
+builder.Services.AddScoped<IOrderRepository,OrderRepository>();
+builder.Services.AddScoped<IUserRepository,UserRepository>();
+builder.Services.AddScoped<IProductService,ProductService>();
+builder.Services.AddScoped<IOrderService,OrderService>();
 
 var app = builder.Build();
 
