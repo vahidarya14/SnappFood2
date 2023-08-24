@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33829.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnappFood", "SnappFood\SnappFood.csproj", "{6F451A9A-B77E-4DAB-B6E8-3A2D37C3A162}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{40BF8681-A1F9-4DFA-9B86-D4EFF7D05E07}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6F451A9A-B77E-4DAB-B6E8-3A2D37C3A162}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F451A9A-B77E-4DAB-B6E8-3A2D37C3A162}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F451A9A-B77E-4DAB-B6E8-3A2D37C3A162}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F451A9A-B77E-4DAB-B6E8-3A2D37C3A162}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40BF8681-A1F9-4DFA-9B86-D4EFF7D05E07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40BF8681-A1F9-4DFA-9B86-D4EFF7D05E07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40BF8681-A1F9-4DFA-9B86-D4EFF7D05E07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40BF8681-A1F9-4DFA-9B86-D4EFF7D05E07}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F42C363E-B460-4D08-9774-A5B130DBA317}
+	EndGlobalSection
+EndGlobal
