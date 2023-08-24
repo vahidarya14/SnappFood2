@@ -21,6 +21,13 @@ namespace SnappFood.Controllers
             return Ok(await _productService.ListAsync(pageNumber,  pagesize));
         }
 
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetByIdAsync(long id)
+        {
+            return Ok(await _productService.GetByIdAsync( id));
+        }
+
+
         [HttpPost("CreateNew")]
         public async Task<IActionResult> CreateNew(ProductCreateUpdateDto product)
         {

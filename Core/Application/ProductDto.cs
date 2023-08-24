@@ -3,7 +3,7 @@
 public class ProductDto
 {
     public long Id { get; set; }
-    public string Title { get; set; }
+    public string Title { get;private set; }
     public int InventoryCount { get; set; }
     public long Price { get; set; }
     public double ProperPrice => (Price - (Price * Discount / 100));

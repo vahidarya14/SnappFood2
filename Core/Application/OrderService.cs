@@ -1,6 +1,7 @@
 ﻿using Core.Domain;
 using Core.Persistance;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace Core.Application;
 
@@ -9,11 +10,13 @@ public class OrderService : IOrderService
     IProductRepository _productRepo;
     IOrderRepository _orderRepo;
     IUserRepository _userRepo;
-    public OrderService(IProductRepository productRepo, IOrderRepository orderRepo, IUserRepository userRepo)
+    IMemoryCache _memoryCache;
+    public OrderService(IProductRepository productRepo, IOrderRepository orderRepo, IUserRepository userRepo, IMemoryCache memoryCache)
     {
         _productRepo = productRepo;
         _orderRepo = orderRepo;
         _userRepo = userRepo;
+        _memoryCache = memoryCache;
     }
 
 
@@ -38,6 +41,8 @@ public class OrderService : IOrderService
 
             await _orderRepo.SaveChangesAsync();
             await transaction.CommitAsync();
+
+            _memoryCache.Remove($"prod{productId}");
         }
         catch (Exception)
         {
