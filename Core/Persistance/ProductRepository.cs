@@ -6,9 +6,9 @@ namespace Core.Persistance;
 
 public class ProductRepository : IProductRepository
 {
-    AppDbContext _db;
+    IAppDbContext _db;
 
-    public ProductRepository(AppDbContext db)
+    public ProductRepository(IAppDbContext db)
     {
         _db = db;
     }
@@ -28,7 +28,7 @@ public class ProductRepository : IProductRepository
         if (allreadyWithThisName)
             throw new Exception("product with the same name allready exsists");
 
-        await _db.AddAsync(product);
+        await _db.Products.AddAsync(product);
     }
 
 

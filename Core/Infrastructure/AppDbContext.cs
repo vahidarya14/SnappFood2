@@ -1,9 +1,9 @@
 ﻿using Core.Domain;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage;
 
 namespace Core.Infrastructure;
-
-public class AppDbContext : DbContext
+public class AppDbContext : DbContext, IAppDbContext
 {
     public DbSet<User> Users { get; set; }
     public DbSet<Product> Products { get; set; }
@@ -11,6 +11,7 @@ public class AppDbContext : DbContext
 
     public AppDbContext(DbContextOptions contextOptions) : base(contextOptions)
     {
+        
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -27,5 +28,10 @@ public class AppDbContext : DbContext
         });
 
         base.OnModelCreating(modelBuilder);
+    }
+
+    public Task<IDbContextTransaction> BeginTransactionAsync()
+    {
+        return Database.BeginTransactionAsync();
     }
 }

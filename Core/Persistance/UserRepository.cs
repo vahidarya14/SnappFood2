@@ -6,9 +6,9 @@ namespace Core.Persistance;
 
 public class UserRepository : IUserRepository
 {
-    AppDbContext _db;
+    IAppDbContext _db;
 
-    public UserRepository(AppDbContext db)
+    public UserRepository(IAppDbContext db)
     {
         _db = db;
     }

@@ -7,9 +7,9 @@ namespace Core.Persistance;
 
 public class OrderRepository : IOrderRepository
 {
-    AppDbContext _db;
+    IAppDbContext _db;
 
-    public OrderRepository(AppDbContext db)
+    public OrderRepository(IAppDbContext db)
     {
         _db = db;
     }
@@ -17,7 +17,7 @@ public class OrderRepository : IOrderRepository
 
     public async Task CreateNew(Order order)
     {
-        await _db.AddAsync(order);
+        await _db.Orders.AddAsync(order);
     }
 
 
@@ -29,7 +29,7 @@ public class OrderRepository : IOrderRepository
 
     public async Task<IDbContextTransaction> BeginTransactionAsync()
     {
-        return await _db.Database.BeginTransactionAsync();
+        return await _db.BeginTransactionAsync();
     }
 
     public async Task<int> SaveChangesAsync()
